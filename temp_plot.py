@@ -24,7 +24,7 @@ def animate(i):
     v5s = [] # y axis for voltages5
     dates = [] # x axis the date
 
-    for line in lines:
+    for line in lines[-1000:]:
         ''' read the lines and append the data to ys ans xs'''
         if len(line) > 1:
             '''get only the non-empty line'''
@@ -55,20 +55,20 @@ def animate(i):
     
     '''plot the data'''
     axs[0].clear()
-    axs[0].plot(dates[-1000:], temp1s[-1000:],label='temperature')
+    axs[0].plot(dates, temp1s,label='temperature')
     axs[1].clear()
-    axs[1].plot(dates[-1000:], temp2s[-1000:],label='temperature')
+    axs[1].plot(dates, temp2s,label='temperature')
 
     axs[2].clear()
-    axs[2].plot(dates[-1000:], v1s[-1000:],label='v1')
+    axs[2].plot(dates, v1s,label='v1')
     axs[3].clear()
-    axs[3].plot(dates[-1000:], v2s[-1000:],label='v2')
+    axs[3].plot(dates, v2s,label='v2')
     axs[4].clear()
-    axs[4].plot(dates[-1000:], v3s[-1000:],label='v3')
+    axs[4].plot(dates, v3s,label='v3')
     axs[5].clear()
-    axs[5].plot(dates[-1000:], v4s[-1000:],label='v4')
+    axs[5].plot(dates, v4s,label='v4')
     axs[6].clear()
-    axs[6].plot(dates[-1000:], v5s[-1000:],label='v5')
+    axs[6].plot(dates, v5s,label='v5')
 
     # for label in axs[1].xaxis.get_ticklabels():
     #     '''set the rotation of the date into 45 degree in order to be readable'''

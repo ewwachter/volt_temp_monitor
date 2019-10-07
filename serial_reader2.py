@@ -8,24 +8,24 @@ import time
 
 
 ser =Serial(
-    port='/dev/ttyACM0',
+    port='/dev/ttyUSB1',
     baudrate = 115200,
     timeout=None)
 def adddata(data):
     '''a function to add the data to the text file'''
     date=time.time()
     h=str(data)+','+str(date)+'\n'
-    fh = open('output.txt', 'a')
+    fh = open('output_minized.txt', 'a')
     fh.write(h) 
     fh.close 
 while 1:
-    #infinit loop
+    ''' infinit loop'''
     while(ser.inWaiting()==0):
-        #wait for the data from serial
+        '''wait for the data from serial'''
         time.sleep(0.2)
         # print(".")
 
-    #read and decode the data
+    #read and decode the data'''
     line=ser.readline().decode('utf-8')
     line=line.rstrip()
     count = line.count(",")
